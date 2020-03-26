@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.cs2001_group10">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".admin_questions"></activity>
+        <activity android:name=".admin_add_question" />
+        <activity android:name=".admin_update_question" />
+        <activity android:name=".admin_show_question" />
+        <activity android:name=".admin_request" />
+        <activity android:name=".questions" />
+        <activity android:name=".select_Topic" />
+        <activity android:name=".setting_Menu" />
+        <activity android:name=".home_screen" />
+        <activity android:name=".new_User" />
+        <activity android:name=".settimer" />
+        <activity android:name=".topics" />
+        <activity android:name=".selectapps" />
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <service android:name=".popup_Service" />
+    </application>
+
+</manifest>

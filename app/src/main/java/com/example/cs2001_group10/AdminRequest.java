@@ -21,7 +21,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class admin_request extends AppCompatActivity {
+public class AdminRequest extends AppCompatActivity {
 
     private static final String TAG = "Request Activity" ;
     public static String Array_Name;
@@ -43,7 +43,7 @@ public class admin_request extends AppCompatActivity {
             public void onClick(View v) {
                 Log.d(TAG, "maths button Working ");
                 Array_Name = "maths_questions";
-                Request(Api.URL_MATHS_REQUEST, Array_Name);
+                Request(API.URL_MATHS_REQUEST, Array_Name);
 
             }
         });
@@ -53,7 +53,7 @@ public class admin_request extends AppCompatActivity {
             public void onClick(View v) {
                 Log.d(TAG, "java button Working ");
                 Array_Name = "java_questions";
-                Request(Api.URL_JAVA_REQUEST, Array_Name);
+                Request(API.URL_JAVA_REQUEST, Array_Name);
 
             }
         });
@@ -63,7 +63,7 @@ public class admin_request extends AppCompatActivity {
             public void onClick(View v) {
                 Log.d(TAG, "python button Working ");
                 Array_Name = "python_questions";
-                Request(Api.URL_PYTHON_REQUEST, Array_Name);
+                Request(API.URL_PYTHON_REQUEST, Array_Name);
 
             }
         });
@@ -108,7 +108,7 @@ public class admin_request extends AppCompatActivity {
     }
 
     private void initQuestionsView() {
-        Intent intent = new Intent(this, admin_questions.class);
+        Intent intent = new Intent(this, AdminQuestions.class);
         intent.putExtra("questions", Questions);
         startActivity(intent);
     }

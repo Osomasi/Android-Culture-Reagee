@@ -9,7 +9,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -50,13 +49,13 @@ public class MainActivity extends AppCompatActivity {
         score = 0;
 
         Array_Name = "maths_questions";
-        Request(Api.URL_MATHS_REQUEST, Array_Name);
+        Request(API.URL_MATHS_REQUEST, Array_Name);
 
         Array_Name = "java_questions";
-        Request(Api.URL_JAVA_REQUEST, Array_Name);
+        Request(API.URL_JAVA_REQUEST, Array_Name);
 
         Array_Name = "python_questions";
-        Request(Api.URL_PYTHON_REQUEST, Array_Name);
+        Request(API.URL_PYTHON_REQUEST, Array_Name);
 
 
         email_box = findViewById(R.id.ed_address);
@@ -67,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Log.d(TAG, "onClick: Register Button Worked");
-                Intent intent = new Intent(MainActivity.this, new_User.class);
+                Intent intent = new Intent(MainActivity.this, NewUser.class);
                 startActivity(intent);
             }
         });
@@ -101,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
     private void Login(final String email, final String password) {
         Log.d(TAG, "Login: Accessed");
 
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, Api.URL_LOGIN_USER,
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, API.URL_LOGIN_USER,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -112,9 +111,9 @@ public class MainActivity extends AppCompatActivity {
 
                             switch (Value) {
                                 case "0":
-                                    Get_Topics(email, Api.URL_GET_TOPICS);
+                                    Get_Topics(email, API.URL_GET_TOPICS);
                                     Toast.makeText(MainActivity.this, "User Login Success", Toast.LENGTH_SHORT).show();
-                                    Intent  intent = new Intent(MainActivity.this, home_screen.class); //< - This goes to the students section
+                                    Intent  intent = new Intent(MainActivity.this, HomeScreen.class); //< - This goes to the students section
                                     startActivity(intent);
                                     break;
                                 case "1":
@@ -125,7 +124,7 @@ public class MainActivity extends AppCompatActivity {
                                     break;
                                 case "3":
                                     Toast.makeText(MainActivity.this, "Admin Login Success", Toast.LENGTH_SHORT).show();
-                                    intent = new Intent(MainActivity.this, admin_request.class);  //   < - This goes to the admin section
+                                    intent = new Intent(MainActivity.this, AdminRequest.class);  //   < - This goes to the admin section
                                     startActivity(intent);
                                     break;
                                 default:

@@ -2,10 +2,8 @@ package com.example.cs2001_group10;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.SystemClock;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -19,15 +17,13 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
-import org.json.JSONArray;
 import org.json.JSONObject;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-public class select_Topic extends AppCompatActivity {
+public class SelectTopic extends AppCompatActivity {
 
     private static final String TAG = "Select Topic Screen Activity" ;
     Boolean check;
@@ -120,7 +116,7 @@ public class select_Topic extends AppCompatActivity {
         back_select_topics.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(select_Topic.this,topics.class));
+                startActivity(new Intent(SelectTopic.this, Topics.class));
             }
         });
 
@@ -131,7 +127,7 @@ public class select_Topic extends AppCompatActivity {
         Log.d(TAG, "Update_Topic: Email " + MainActivity.email);
         Log.d(TAG, "Update_Topic: topic " + topic);
         Log.d(TAG, "Update_Topic: Value " + value);
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, Api.URL_UPDATE_TOPICS,
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, API.URL_UPDATE_TOPICS,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -142,9 +138,9 @@ public class select_Topic extends AppCompatActivity {
                             String Value = jsonObject.getString("value");
 
                             if (Value.equals("0")) {
-                                Toast.makeText(select_Topic.this, "Topic Update Successful", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(SelectTopic.this, "Topic Update Successful", Toast.LENGTH_SHORT).show();
                             } else {
-                                Toast.makeText(select_Topic.this, "Update Failed", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(SelectTopic.this, "Update Failed", Toast.LENGTH_SHORT).show();
                             }
 
 

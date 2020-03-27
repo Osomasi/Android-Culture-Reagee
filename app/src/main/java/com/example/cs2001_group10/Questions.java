@@ -27,7 +27,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
 
-public class questions extends AppCompatActivity {
+public class Questions extends AppCompatActivity {
 
     private static final String TAG = "Questions Screen Activity" ;
     ArrayList<String> maths_Questions = new ArrayList<>();
@@ -120,8 +120,8 @@ public class questions extends AppCompatActivity {
 
                 if(MainActivity.score>=5){
                     MainActivity.score -= 5;
-                    Toast.makeText(questions.this,"Questions skipped, 5 points used", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(questions.this,home_screen.class));
+                    Toast.makeText(Questions.this,"Questions skipped, 5 points used", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(Questions.this, HomeScreen.class));
 
                 }
             }
@@ -133,11 +133,11 @@ public class questions extends AppCompatActivity {
         question.setText(maths_Questions.get(current_Question)); //Displays the current question
         // if statment
         if (list_Topics.get(current_Question) == "Java") {
-            GetAnswers(maths_Questions.get(current_Question), Api.URL_JAVA_ANSWERS_REQUEST, "java_questions");// Runs method to display answers for java
+            GetAnswers(maths_Questions.get(current_Question), API.URL_JAVA_ANSWERS_REQUEST, "java_questions");// Runs method to display answers for java
         } else if(list_Topics.get(current_Question) == "Python") {
-            GetAnswers(maths_Questions.get(current_Question), Api.URL_PYTHON_ANSWERS_REQUEST, "python_questions");// Runs method to display answers for python
+            GetAnswers(maths_Questions.get(current_Question), API.URL_PYTHON_ANSWERS_REQUEST, "python_questions");// Runs method to display answers for python
         } else if(list_Topics.get(current_Question) == "Maths") {
-            GetAnswers(maths_Questions.get(current_Question), Api.URL_MATHS_ANSWERS_REQUEST, "maths_questions");// Runs method to display maths
+            GetAnswers(maths_Questions.get(current_Question), API.URL_MATHS_ANSWERS_REQUEST, "maths_questions");// Runs method to display maths
         }
 
         current_Question++;
@@ -217,13 +217,13 @@ public class questions extends AppCompatActivity {
         }
 
         if(ans_Button.getText() == correct_ans_result){
-            Toast.makeText(questions.this, "Correct", Toast.LENGTH_SHORT).show();
+            Toast.makeText(Questions.this, "Correct", Toast.LENGTH_SHORT).show();
             MainActivity.score++;
         } else{
-            Toast.makeText(questions.this, "incorrect", Toast.LENGTH_SHORT).show();
+            Toast.makeText(Questions.this, "incorrect", Toast.LENGTH_SHORT).show();
         }
         if(current_Question == 4){
-            startActivity(new Intent(questions.this,home_screen.class));
+            startActivity(new Intent(Questions.this, HomeScreen.class));
         } else{
             next_Question();
         }

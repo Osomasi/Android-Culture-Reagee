@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class selectapps extends AppCompatActivity {
+public class SelectApps extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,7 +18,7 @@ public class selectapps extends AppCompatActivity {
         enter_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(selectapps.this,setting_Menu.class));
+                startActivity(new Intent(SelectApps.this, SettingsMenu.class));
             }
         });
 
@@ -26,7 +26,7 @@ public class selectapps extends AppCompatActivity {
         backselect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(selectapps.this,setting_Menu.class));
+                startActivity(new Intent(SelectApps.this, SettingsMenu.class));
             }
         });
     }

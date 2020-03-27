@@ -9,7 +9,7 @@ import android.os.Bundle;
 
 import java.util.ArrayList;
 
-public class admin_questions extends AppCompatActivity {
+public class AdminQuestions extends AppCompatActivity {
 
     private ArrayList<String> QuestionsList;
 

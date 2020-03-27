@@ -11,19 +11,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".admin_questions"></activity>
-        <activity android:name=".admin_add_question" />
-        <activity android:name=".admin_update_question" />
-        <activity android:name=".admin_show_question" />
-        <activity android:name=".admin_request" />
-        <activity android:name=".questions" />
-        <activity android:name=".select_Topic" />
-        <activity android:name=".setting_Menu" />
-        <activity android:name=".home_screen" />
-        <activity android:name=".new_User" />
-        <activity android:name=".settimer" />
-        <activity android:name=".topics" />
-        <activity android:name=".selectapps" />
+        <activity android:name=".AdminQuestions"></activity>
+        <activity android:name=".AdminAddQuestion" />
+        <activity android:name=".AdminUpdateQuestion" />
+        <activity android:name=".AdminShowQuestion" />
+        <activity android:name=".AdminRequest" />
+        <activity android:name=".Questions" />
+        <activity android:name=".SelectTopic" />
+        <activity android:name=".SettingsMenu" />
+        <activity android:name=".HomeScreen" />
+        <activity android:name=".NewUser" />
+        <activity android:name=".SetTimer" />
+        <activity android:name=".Topics" />
+        <activity android:name=".SelectApps" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -32,7 +32,7 @@
             </intent-filter>
         </activity>
 
-        <service android:name=".popup_Service" />
+        <service android:name=".PopupService" />
     </application>
 
 </manifest>

@@ -26,7 +26,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-public class admin_show_question extends AppCompatActivity {
+public class AdminShowQuestion extends AppCompatActivity {
 
     private static final String TAG = "Show Question" ;
     private TextView answer_one, answer_two, correct_answer;
@@ -46,27 +46,27 @@ public class admin_show_question extends AppCompatActivity {
         correct_answer = findViewById(R.id.Correct_Answer);
 
         final String question_result = intent.getStringExtra("question");
-        Log.d(TAG, "onCreate: " + admin_request.Array_Name);
+        Log.d(TAG, "onCreate: " + AdminRequest.Array_Name);
 
         question.setText(intent.getStringExtra("question"));
-        if (Objects.equals(admin_request.Array_Name, "maths_questions")) {
+        if (Objects.equals(AdminRequest.Array_Name, "maths_questions")) {
             Log.d(TAG, "onCreate: WORKSSSS");
 
-            GetAnswers(intent.getStringExtra("question"), Api.URL_MATHS_ANSWERS_REQUEST);
+            GetAnswers(intent.getStringExtra("question"), API.URL_MATHS_ANSWERS_REQUEST);
 
         }
 
-        if (Objects.equals(admin_request.Array_Name, "java_questions")) {
+        if (Objects.equals(AdminRequest.Array_Name, "java_questions")) {
             Log.d(TAG, "onCreate: WORKSSSS");
 
-            GetAnswers(intent.getStringExtra("question"), Api.URL_JAVA_ANSWERS_REQUEST);
+            GetAnswers(intent.getStringExtra("question"), API.URL_JAVA_ANSWERS_REQUEST);
 
         }
 
-        if (Objects.equals(admin_request.Array_Name, "python_questions")) {
+        if (Objects.equals(AdminRequest.Array_Name, "python_questions")) {
             Log.d(TAG, "onCreate: WORKSSSS");
 
-            GetAnswers(intent.getStringExtra("question"), Api.URL_PYTHON_ANSWERS_REQUEST);
+            GetAnswers(intent.getStringExtra("question"), API.URL_PYTHON_ANSWERS_REQUEST);
 
         }
 
@@ -78,7 +78,7 @@ public class admin_show_question extends AppCompatActivity {
             public void onClick(View v) {
                 Log.d(TAG, "Update Working ");
 
-                Intent  intent = new Intent(admin_show_question.this, admin_update_question.class);
+                Intent  intent = new Intent(AdminShowQuestion.this, AdminUpdateQuestion.class);
                 intent.putExtra("question", question_result);
                 intent.putExtra("answer", ans_result);
                 intent.putExtra("answer_two", ans_two_result);
@@ -92,7 +92,7 @@ public class admin_show_question extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Log.d(TAG, "Delete Working ");
-                Delete(intent.getStringExtra("question"), admin_request.Array_Name);
+                Delete(intent.getStringExtra("question"), AdminRequest.Array_Name);
             }
         });
 
@@ -110,7 +110,7 @@ public class admin_show_question extends AppCompatActivity {
                         try {
                             JSONObject jsonObject = new JSONObject(response);
                             Log.d(TAG, "onResponse: " + jsonObject);
-                            JSONArray Array = jsonObject.getJSONArray(admin_request.Array_Name);
+                            JSONArray Array = jsonObject.getJSONArray(AdminRequest.Array_Name);
 
                             answer_one.setText("First Answer: " + Array.getJSONObject(0).getString("answer"));
                             ans_result = Array.getJSONObject(0).getString("answer");
@@ -147,7 +147,7 @@ public class admin_show_question extends AppCompatActivity {
     private void Delete(final String question, final String table_name) {
 
         Log.d(TAG, "Delete: Accessed");
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, Api.URL_DELETE,
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, API.URL_DELETE,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -156,11 +156,11 @@ public class admin_show_question extends AppCompatActivity {
                             Log.d(TAG, "onResponse: " + response);
                             String Value = jsonObject.getString("value");
                             if (Value.equals("0")) {
-                                Toast.makeText(admin_show_question.this, "Delete Successful", Toast.LENGTH_SHORT).show();
-                                Intent  intent = new Intent(admin_show_question.this, admin_request.class);
+                                Toast.makeText(AdminShowQuestion.this, "Delete Successful", Toast.LENGTH_SHORT).show();
+                                Intent  intent = new Intent(AdminShowQuestion.this, AdminRequest.class);
                                 startActivity(intent);
                             } else {
-                                Toast.makeText(admin_show_question.this, "Delete Failed", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(AdminShowQuestion.this, "Delete Failed", Toast.LENGTH_SHORT).show();
                             }
 
                         } catch (JSONException ex) {

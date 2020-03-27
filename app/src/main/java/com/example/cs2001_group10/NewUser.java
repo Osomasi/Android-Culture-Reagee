@@ -22,7 +22,7 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
-public class new_User extends AppCompatActivity {
+public class NewUser extends AppCompatActivity {
 
     private static final String TAG = "New User Activity";
     private EditText name, email, password, confirm_password;
@@ -71,7 +71,7 @@ public class new_User extends AppCompatActivity {
 
     private void Register(final String name, final String email, final String password) {
         Log.d(TAG, "Register: Accessed");
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, Api.URL_REGISTER,
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, API.URL_REGISTER,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -83,23 +83,23 @@ public class new_User extends AppCompatActivity {
 
                             switch (Value) {
                                 case "0":
-                                    Toast.makeText(new_User.this, "Register Complete", Toast.LENGTH_SHORT).show();
-                                    Intent intent = new Intent(new_User.this, MainActivity.class);
+                                    Toast.makeText(NewUser.this, "Register Complete", Toast.LENGTH_SHORT).show();
+                                    Intent intent = new Intent(NewUser.this, MainActivity.class);
                                     startActivity(intent);
                                     break;
                                 case "1":
-                                    Toast.makeText(new_User.this, "Username Taken", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(NewUser.this, "Username Taken", Toast.LENGTH_SHORT).show();
                                     break;
                                 case "2":
-                                    Toast.makeText(new_User.this, "Email Address is already in use.", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(NewUser.this, "Email Address is already in use.", Toast.LENGTH_SHORT).show();
                                     break;
                                 default:
-                                    Toast.makeText(new_User.this, "Register Failed", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(NewUser.this, "Register Failed", Toast.LENGTH_SHORT).show();
                                     break;
                             }
                         } catch (Exception e) {
                             e.printStackTrace();
-                            Toast.makeText(new_User.this, "Register Failed " + e.toString(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(NewUser.this, "Register Failed " + e.toString(), Toast.LENGTH_SHORT).show();
                         }
 
                     }
@@ -107,7 +107,7 @@ public class new_User extends AppCompatActivity {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(new_User.this, "Server Response Failed: " + error.toString(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(NewUser.this, "Server Response Failed: " + error.toString(), Toast.LENGTH_SHORT).show();
                     }
                 })
         {

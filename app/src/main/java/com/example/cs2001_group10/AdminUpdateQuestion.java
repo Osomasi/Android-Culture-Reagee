@@ -22,7 +22,7 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
-public class admin_update_question extends AppCompatActivity {
+public class AdminUpdateQuestion extends AppCompatActivity {
 
     private static final String TAG = "Update Activity";
     private EditText question, answer, answer_two, correct_answer;
@@ -86,7 +86,7 @@ public class admin_update_question extends AppCompatActivity {
 
     private void Update_Question(final String question, final String answer, final String answer_two, final String correct_answer) {
         Log.d(TAG, "Update Question: Accessed");
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, Api.URL_UPDATE_QUESTION,
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, API.URL_UPDATE_QUESTION,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -96,13 +96,13 @@ public class admin_update_question extends AppCompatActivity {
                             String Value = jsonObject.getString("value");
 
                             if (Value.equals("0")) {
-                                Toast.makeText(admin_update_question.this, "Update Successful", Toast.LENGTH_SHORT).show();
-                                Intent  intent = new Intent(admin_update_question.this, admin_request.class);
+                                Toast.makeText(AdminUpdateQuestion.this, "Update Successful", Toast.LENGTH_SHORT).show();
+                                Intent  intent = new Intent(AdminUpdateQuestion.this, AdminRequest.class);
                                 startActivity(intent);
                             } else if (Value.equals("1")) {
-                                Toast.makeText(admin_update_question.this, "Question Exist Already", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(AdminUpdateQuestion.this, "Question Exist Already", Toast.LENGTH_SHORT).show();
                             } else {
-                                Toast.makeText(admin_update_question.this, "Update Failed", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(AdminUpdateQuestion.this, "Update Failed", Toast.LENGTH_SHORT).show();
                             }
 
 
@@ -128,7 +128,7 @@ public class admin_update_question extends AppCompatActivity {
                 params.put("answer_two", answer_two);
                 params.put("correct_answer", correct_answer);
                 params.put("og_question", og_question);
-                params.put("table", admin_request.Array_Name);
+                params.put("table", AdminRequest.Array_Name);
                 return params;
             }
         };

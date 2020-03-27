@@ -1,6 +1,6 @@
 package com.example.cs2001_group10;
 
-class Api {
+class API {
 
     private static final String ROOT_URL = "https://databasegroup10.000webhostapp.com/API.php?apicall=";
 

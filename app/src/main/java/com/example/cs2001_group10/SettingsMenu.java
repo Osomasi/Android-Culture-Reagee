@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class setting_Menu extends AppCompatActivity {
+public class SettingsMenu extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,21 +18,21 @@ public class setting_Menu extends AppCompatActivity {
         select_app.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(setting_Menu.this,selectapps.class));
+                startActivity(new Intent(SettingsMenu.this, SelectApps.class));
             }
         });
         Button timer_menu = (Button) findViewById(R.id.timer);
         timer_menu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(setting_Menu.this,settimer.class));
+                startActivity(new Intent(SettingsMenu.this, SetTimer.class));
             }
         });
         Button back_settings_menu = (Button) findViewById(R.id.back_settings_menu);
         back_settings_menu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(setting_Menu.this,home_screen.class));
+                startActivity(new Intent(SettingsMenu.this, HomeScreen.class));
             }
         });
     }

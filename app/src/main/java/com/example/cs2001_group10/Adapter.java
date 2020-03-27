@@ -3,7 +3,6 @@ package com.example.cs2001_group10;
 import android.app.Activity;
 
 import android.content.Intent;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -70,7 +69,7 @@ class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
                 @Override
                 public void onClick(View view) {
                     Toast.makeText(activity, "You clicked at Footer View", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(activity, admin_add_question.class);
+                    Intent intent = new Intent(activity, AdminAddQuestion.class);
                     activity.startActivity(intent);
                 }
             });
@@ -89,7 +88,7 @@ class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
     }
 
     private void PassValues(String question) {
-        Intent intent = new Intent(activity, admin_show_question.class);
+        Intent intent = new Intent(activity, AdminShowQuestion.class);
         intent.putExtra("question", question);
         activity.startActivity(intent);
     }

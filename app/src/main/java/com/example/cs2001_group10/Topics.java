@@ -23,7 +23,7 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
-public class topics extends AppCompatActivity {
+public class Topics extends AppCompatActivity {
     String topic;
     private static final String TAG = "Topic Buttons Screen Activity" ;
 
@@ -31,10 +31,10 @@ public class topics extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_topics);
-        final Intent open_Topic_Detail = new Intent(topics.this, select_Topic.class);
+        final Intent open_Topic_Detail = new Intent(Topics.this, SelectTopic.class);
 
         MainActivity.saved_Topics.clear();
-        Get_Topics(MainActivity.email, Api.URL_GET_TOPICS);
+        Get_Topics(MainActivity.email, API.URL_GET_TOPICS);
 
 
         Button b_Java = (Button) findViewById(R.id.b_Java);
@@ -74,7 +74,7 @@ public class topics extends AppCompatActivity {
         b_Back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(topics.this,home_screen.class));
+                startActivity(new Intent(Topics.this, HomeScreen.class));
             }
         });
     }

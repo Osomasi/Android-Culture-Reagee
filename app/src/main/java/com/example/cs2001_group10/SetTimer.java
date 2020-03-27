@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class settimer extends AppCompatActivity {
+public class SetTimer extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,7 +18,7 @@ public class settimer extends AppCompatActivity {
         back_settimer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(settimer.this,setting_Menu.class));
+                startActivity(new Intent(SetTimer.this, SettingsMenu.class));
             }
         });
 

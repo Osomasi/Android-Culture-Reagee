@@ -19,8 +19,14 @@ import com.android.volley.toolbox.Volley;
 
 import org.json.JSONObject;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 public class AdminAddQuestion extends AppCompatActivity {
 
@@ -50,22 +56,45 @@ public class AdminAddQuestion extends AppCompatActivity {
 
     private void Check() {
 
-        final String question = this.question.getText().toString().trim();
-        final String answer_one = this.answer.getText().toString().trim();
-        final String answer_two = this.answer_two.getText().toString().trim();
-        final String correct_answer = this.correct_answer.getText().toString().trim();
+//        final String question = this.question.getText().toString().trim();
+//        final String answer_one = this.answer.getText().toString().trim();
+//        final String answer_two = this.answer_two.getText().toString().trim();
+//        final String correct_answer = this.correct_answer.getText().toString().trim();
 
-        if (question.matches("")) {
-            Toast.makeText(this, "Question has not been entered", Toast.LENGTH_SHORT).show();
-        } else if (answer_one.matches("")) {
-            Toast.makeText(this, "Answer One not been entered", Toast.LENGTH_SHORT).show();
-        } else if (answer_two.matches("")) {
-            Toast.makeText(this, "Answer Two has not been entered", Toast.LENGTH_SHORT).show();
-        } else if (correct_answer.matches("")) {
-            Toast.makeText(this, "Correct Answer has not been entered", Toast.LENGTH_SHORT).show();
-        } else {
-            Insert_Question(question, answer_one, answer_two,correct_answer);
-        }
+//        if (question.matches("")) {
+//            Toast.makeText(this, "Question has not been entered", Toast.LENGTH_SHORT).show();
+//        } else if (answer_one.matches("")) {
+//            Toast.makeText(this, "Answer One not been entered", Toast.LENGTH_SHORT).show();
+//        } else if (answer_two.matches("")) {
+//            Toast.makeText(this, "Answer Two has not been entered", Toast.LENGTH_SHORT).show();
+//        } else if (correct_answer.matches("")) {
+//            Toast.makeText(this, "Correct Answer has not been entered", Toast.LENGTH_SHORT).show();
+//        } else {
+//            Insert_Question(question, answer_one, answer_two,correct_answer);
+//        }
+
+//        my version
+          List<EditText> inputList = Arrays.asList(question,answer,answer_two,correct_answer);
+          if(checkInputs(inputList)){
+              Insert_Question(question.getText().toString().trim(),
+                      answer.getText().toString().trim(),
+                      answer_two.getText().toString().trim(),
+                      correct_answer.getText().toString().trim());
+          }
+
+    }
+
+    private boolean checkInputs(List<EditText> inputs){
+        AtomicBoolean ok = new AtomicBoolean(true);
+        inputs.forEach(input->{
+            if ((input.getText().toString().isEmpty())) {
+                input.setError("This field needs to be entered.");
+                ok.set(false);
+            } else {
+                input.setError(null);
+            }
+        });
+        return ok.get();
     }
 
     private void Insert_Question(final String question, final String answer, final String answer_two, final String correct_answer) {
